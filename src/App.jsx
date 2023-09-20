@@ -1,14 +1,15 @@
-import { useState } from 'react'
+import { useState } from "react";
+import Categories from "./components/categories/Categories";
 
 
 function App() {
  
 
   return (
-    <div className='categories-container'>
-      <div className='category-container'></div>
-    </div>
-  )
+   
+      <Categories />
+    
+  );
 }
 
-export default App
+export default App;
