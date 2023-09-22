@@ -1,14 +1,14 @@
 import { Routes, Route } from "react-router-dom";
 import Categories from "./components/categories/Categories";
 import NavigationBar from "./components/navigationBar/NavigationBar";
-import SignIn from "./components/signIn/SignIn";
+import Authentication from "./components/authentication/Authentication";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<NavigationBar />}>
         <Route index element={<Categories />} />
-        <Route path="sign-in" element={<SignIn />} />
+        <Route path="auth" element={<Authentication />} />
       </Route>
     </Routes>
   );
