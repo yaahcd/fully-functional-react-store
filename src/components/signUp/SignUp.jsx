@@ -4,6 +4,7 @@ import {
   createUserDocFromAuth,
 } from "../../utils/firebase/firebase.utils";
 import FormInput from "../formInput/FormInput";
+import Button from "../button/Button";
 import "./signUp.styles.scss";
 
 function SignUp() {
@@ -54,7 +55,9 @@ function SignUp() {
   };
 
   return (
-    <div>
+    <div className="sign-up-container">
+      <h2>Don't have an account?</h2>
+      <span>Sign up with your email and password</span>
       <form onSubmit={handleSubmit}>
         <FormInput
           label="Display Name"
@@ -88,7 +91,7 @@ function SignUp() {
           name="confirmPassword"
           value={newUser.confirmPassword}
         />
-        <button type="submit">Sign Up</button>
+        <Button type="submit">Sign Up</Button>
       </form>
     </div>
   );
