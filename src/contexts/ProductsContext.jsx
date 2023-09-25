@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useContext } from "react";
+import { createContext, useState } from "react";
 import products from "../111 shop-data.json";
 
 export const ProductsContext = createContext({

@@ -4,15 +4,17 @@ import logo from "../../assets/react.svg";
 import CartIcon from "../cartIcon/CartIcon";
 import CartDropdown from "../cartDropdown/CartDropdown";
 import { UserContext } from "../../contexts/UserContext";
+import { CartContext } from "../../contexts/CartContext";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import "./navigationBar.styles.scss";
 
 function NavigationBar() {
   const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { isCartOpen } = useContext(CartContext);
 
   const signOutHandler = async () => {
     await signOutUser();
-    setCurrentUser(null)
+    setCurrentUser(null);
   };
 
   return (
@@ -37,7 +39,7 @@ function NavigationBar() {
           )}
           <CartIcon />
         </div>
-        <CartDropdown />
+        {isCartOpen && <CartDropdown />}
       </div>
       <Outlet />
     </Fragment>
