@@ -2,7 +2,7 @@ import { Fragment, useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
 import logo from "../../assets/react.svg";
 import { UserContext } from "../../contexts/UserContext";
-import { signOutUser } from "firebase/auth";
+import { signOutUser } from "../../utils/firebase/firebase.utils";
 import "./navigationBar.styles.scss";
 
 function NavigationBar() {
