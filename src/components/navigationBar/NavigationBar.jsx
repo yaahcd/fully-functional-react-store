@@ -35,7 +35,7 @@ function NavigationBar() {
           )}
 
           <Link className="nav-link" to="/shop">
-            Shop
+            CART
           </Link>
         </div>
       </div>
