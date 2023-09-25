@@ -13,7 +13,6 @@ function SignIn() {
     email: "",
     password: "",
   });
- 
 
   const signInWithGoogle = async () => {
     await signInWithGooglePopup();
@@ -41,7 +40,6 @@ function SignIn() {
         signInUser.password
       );
       resetFormFields();
-    
     } catch (error) {
       if (error.code === "auth/invalid-login-credentials") {
         alert("Wrong email or password");
