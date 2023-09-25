@@ -1,46 +1,52 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
   signInWithGooglePopup,
   signInAuthUserWithEmailAndPassword,
   createUserDocFromAuth,
 } from "../../utils/firebase/firebase.utils";
+import { UserContext } from "../../contexts/UserContext";
 import FormInput from "../formInput/FormInput";
 import Button from "../button/Button";
 import "./signIn.styles.scss";
 
 function SignIn() {
-  const [user, setUser] = useState({
+  const [signInUser, setSignInUser] = useState({
     email: "",
     password: "",
   });
+  const { setCurrentUser } = useContext(UserContext);
 
   const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
     await createUserDocFromAuth(user);
+    setCurrentUser(user);
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    setUser({ ...user, [name]: value });
+    setSignInUser({ ...signInUser, [name]: value });
   };
 
   const resetFormFields = () => {
-    setUser({
+    setSignInUser({
       email: "",
       password: "",
     });
   };
 
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await signInAuthUserWithEmailAndPassword(
-        user.email,
-        user.password
+      const { user } = await signInAuthUserWithEmailAndPassword(
+        signInUser.email,
+        signInUser.password
       );
       resetFormFields();
+      setCurrentUser(user);
     } catch (error) {
       if (error.code === "auth/invalid-login-credentials") {
         alert("Wrong email or password");
@@ -61,7 +67,7 @@ function SignIn() {
           required
           onChange={handleChange}
           name="email"
-          value={user.email}
+          value={signInUser.email}
         />
         <FormInput
           label="Password"
@@ -69,7 +75,7 @@ function SignIn() {
           required
           onChange={handleChange}
           name="password"
-          value={user.password}
+          value={signInUser.password}
         />
         <div className="buttons-container">
           <Button type="submit">Sign In</Button>
