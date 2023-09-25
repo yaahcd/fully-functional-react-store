@@ -1,6 +1,8 @@
 import { Fragment, useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
 import logo from "../../assets/react.svg";
+import CartIcon from "../cartIcon/CartIcon";
+import CartDropdown from "../cartDropdown/CartDropdown";
 import { UserContext } from "../../contexts/UserContext";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import "./navigationBar.styles.scss";
@@ -33,11 +35,9 @@ function NavigationBar() {
               SIGN IN
             </Link>
           )}
-
-          <Link className="nav-link" to="/shop">
-            CART
-          </Link>
+          <CartIcon />
         </div>
+        <CartDropdown />
       </div>
       <Outlet />
     </Fragment>
