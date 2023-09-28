@@ -2,26 +2,31 @@
   {
     "id": 1,
     "title": "hats",
-    "imageUrl": "https://i.ibb.co/DG4bSzL/brooke-cagle-ICFPv3x-JY90-unsplash.jpg"
+    "imageUrl": "https://i.ibb.co/DG4bSzL/brooke-cagle-ICFPv3x-JY90-unsplash.jpg",
+    "route": "shop/hats"
   },
   {
     "id": 2,
     "title": "jackets",
-    "imageUrl": "https://i.ibb.co/P1fsJXc/max-harlynking-CDLBz2l-Pp-LM-unsplash.jpg"
+    "imageUrl": "https://i.ibb.co/P1fsJXc/max-harlynking-CDLBz2l-Pp-LM-unsplash.jpg",
+    "route": "shop/jackets"
   },
   {
     "id": 3,
     "title": "trainers",
-    "imageUrl": "https://i.ibb.co/mFMtSFN/hipkicks-Hcq-A34-u-Wo4-unsplash.jpg"
+    "imageUrl": "https://i.ibb.co/mFMtSFN/hipkicks-Hcq-A34-u-Wo4-unsplash.jpg",
+    "route": "shop/trainers"
   },
   {
     "id": 4,
     "title": "womens",
-    "imageUrl": "https://i.ibb.co/hDr2g9t/allef-vinicius-t-Nzt-Bxl-ZSqo-unsplash.jpg"
+    "imageUrl": "https://i.ibb.co/hDr2g9t/allef-vinicius-t-Nzt-Bxl-ZSqo-unsplash.jpg",
+    "route": "shop/womens"
   },
   {
     "id": 5,
     "title": "mens",
-    "imageUrl": "https://i.ibb.co/k9xxQbh/brooke-cagle-w-KOKid-NT14w-unsplash.jpg"
+    "imageUrl": "https://i.ibb.co/k9xxQbh/brooke-cagle-w-KOKid-NT14w-unsplash.jpg",
+    "route": "shop/mens"
   }
 ]
