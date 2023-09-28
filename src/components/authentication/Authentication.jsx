@@ -1,15 +1,15 @@
 
 import SignIn from '../signIn/SignIn';
 import SignUp from '../signUp/SignUp';
-import './authentication.styles.scss'
+import { AuthenticationContainer } from './Authentication.styles';
 
 function Authentication() {
 
   return (
-    <div className='authentication-container'>
+    <AuthenticationContainer>
       <SignIn />
       <SignUp />
-    </div>
+    </AuthenticationContainer>
   )
 }
 
