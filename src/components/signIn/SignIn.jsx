@@ -6,7 +6,7 @@ import {
 } from "../../utils/firebase/firebase.utils";
 import FormInput from "../formInput/FormInput";
 import Button from "../button/Button";
-import "./signIn.styles.scss";
+import { SignInContainer, ButtonsContainer } from "./SignIn.styles";
 
 function SignIn() {
   const [signInUser, setSignInUser] = useState({
@@ -50,7 +50,7 @@ function SignIn() {
   };
 
   return (
-    <div className="sign-up-container">
+    <SignInContainer>
       <h2>Already have an account?</h2>
       <span>Sign in with your email and password</span>
       <form onSubmit={handleSubmit}>
@@ -70,14 +70,14 @@ function SignIn() {
           name="password"
           value={signInUser.password}
         />
-        <div className="buttons-container">
+        <ButtonsContainer>
           <Button type="submit">Sign In</Button>
           <Button type="button" buttonType="google" onClick={signInWithGoogle}>
             Google Sign In
           </Button>
-        </div>
+        </ButtonsContainer>
       </form>
-    </div>
+    </SignInContainer>
   );
 }
 

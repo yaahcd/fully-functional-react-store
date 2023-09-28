@@ -5,7 +5,7 @@ import {
 } from "../../utils/firebase/firebase.utils";
 import FormInput from "../formInput/FormInput";
 import Button from "../button/Button";
-import "./signUp.styles.scss";
+import { SignUpContainer } from "./SignUp.styles";
 
 function SignUp() {
   const [newUser, setNewUser] = useState({
@@ -56,7 +56,7 @@ function SignUp() {
   };
 
   return (
-    <div className="sign-up-container">
+    <SignUpContainer>
       <h2>Don't have an account?</h2>
       <span>Sign up with your email and password</span>
       <form onSubmit={handleSubmit}>
@@ -94,7 +94,7 @@ function SignUp() {
         />
         <Button type="submit">Sign Up</Button>
       </form>
-    </div>
+    </SignUpContainer>
   );
 }
 
