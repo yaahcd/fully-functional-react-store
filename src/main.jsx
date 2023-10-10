@@ -13,13 +13,13 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}> 
     <BrowserRouter>
-      <UserProvider>
+      {/* <UserProvider> */}
         <ProductsProvider>
           <CartProvider>
             <App />
           </CartProvider>
         </ProductsProvider>
-      </UserProvider>
+      {/* </UserProvider> */}
     </BrowserRouter>
     </Provider>
   </React.StrictMode>

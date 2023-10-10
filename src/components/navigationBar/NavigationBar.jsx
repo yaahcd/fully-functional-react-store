@@ -1,5 +1,5 @@
 import { Fragment, useContext } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import logo from "../../assets/react.svg";
 import CartIcon from "../cartIcon/CartIcon";
 import CartDropdown from "../cartDropdown/CartDropdown";
@@ -12,6 +12,7 @@ import {
   NavLinks,
   NavLink,
 } from "./NavigationBar.styles";
+import { useSelector } from 'react-redux'
 
 function NavigationBar() {
   const { currentUser, setCurrentUser } = useContext(UserContext);
