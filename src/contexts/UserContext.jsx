@@ -9,25 +9,9 @@ export const UserContext = createContext({
   setCurrentUser: () => null,
 });
 
-export const userActionTypes = {
-  setCurrentUser: "setCurrentUser",
-};
 
-const userReducer = (state, action) => {
-  switch (action.type) {
-    case userActionTypes.setCurrentUser:
-      return {
-        ...state,
-        currentUser: action.payload,
-      };
-    default:
-      throw new Error(`Unknown type ${type} in userReducer`);
-  }
-};
 
-const initialState = {
-  currentUser: null,
-};
+
 
 export const UserProvider = ({ children }) => {
   const [{ currentUser }, dispatch] = useReducer(userReducer, initialState);
