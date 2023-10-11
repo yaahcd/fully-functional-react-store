@@ -12,18 +12,11 @@ import {
   NavLink,
 } from "./NavigationBar.styles";
 import { selectCurrentUser } from "../../store/user/user.selector";
-import { useSelector } from 'react-redux'
+import { useSelector } from "react-redux";
 
 function NavigationBar() {
-  const currentUser = useSelector(selectCurrentUser)
+  const currentUser = useSelector(selectCurrentUser);
   const { isCartOpen } = useContext(CartContext);
-
-  console.log(currentUser);
-
-  const signOutHandler = async () => {
-    await signOutUser();
-    setCurrentUser(null);
-  };
 
   return (
     <Fragment>
@@ -35,7 +28,7 @@ function NavigationBar() {
           <NavLink to="/shop">SHOP</NavLink>
 
           {currentUser ? (
-            <NavLink as="span" onClick={signOutHandler}>
+            <NavLink as="span" onClick={signOutUser}>
               SIGN OUT
             </NavLink>
           ) : (
