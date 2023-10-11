@@ -3,7 +3,6 @@ import { Outlet } from "react-router-dom";
 import logo from "../../assets/react.svg";
 import CartIcon from "../cartIcon/CartIcon";
 import CartDropdown from "../cartDropdown/CartDropdown";
-import { UserContext } from "../../contexts/UserContext";
 import { CartContext } from "../../contexts/CartContext";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import {
@@ -12,11 +11,14 @@ import {
   NavLinks,
   NavLink,
 } from "./NavigationBar.styles";
+import { selectCurrentUser } from "../../store/user/user.selector";
 import { useSelector } from 'react-redux'
 
 function NavigationBar() {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const currentUser = useSelector(selectCurrentUser)
   const { isCartOpen } = useContext(CartContext);
+
+  console.log(currentUser);
 
   const signOutHandler = async () => {
     await signOutUser();

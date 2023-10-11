@@ -13,9 +13,9 @@
   },
   {
     "id": 3,
-    "title": "trainers",
+    "title": "sneakers",
     "imageUrl": "https://i.ibb.co/mFMtSFN/hipkicks-Hcq-A34-u-Wo4-unsplash.jpg",
-    "route": "shop/trainers"
+    "route": "shop/sneakers"
   },
   {
     "id": 4,

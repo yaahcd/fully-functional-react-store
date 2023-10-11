@@ -11,7 +11,7 @@ function CategoryItem({ title, imageUrl, route }) {
 
   return (
     <CategoryHomeContainer onClick={() => navigate(`${route}`)}>
-      <BackgroundImage imageUrl={imageUrl} />
+      <BackgroundImage image={imageUrl} />
       <Body>
         <h2>{title}</h2>
         <p>Shop now</p>
