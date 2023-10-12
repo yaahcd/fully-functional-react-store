@@ -8,7 +8,7 @@ export const categoriesReducer = (
   state = categoriesInitialState,
   action = {}
 ) => {
-    console.log(action);
+  
   switch (action.type) {
     case categoriesActionTypes.setCategories:
       return {
