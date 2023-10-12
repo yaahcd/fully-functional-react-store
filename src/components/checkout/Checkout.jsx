@@ -1,9 +1,12 @@
 import "./Checkout.styles.jsx";
 import CheckoutItem from "../checkoutItem/CheckoutItem";
 import { CheckoutContainer, CheckoutHeader, HeaderBlock, Total } from "./Checkout.styles.jsx";
+import { selectCartItems, selectCartTotal } from "../../store/cart/cart.selector.js";
+import { useSelector } from "react-redux";
 
 function Checkout() {
-  const { cartItems, cartTotal } = [];
+  const cartItems = useSelector(selectCartItems) 
+  const cartTotal = useSelector(selectCartTotal)
 
   return (
     <CheckoutContainer>
