@@ -1,11 +1,9 @@
 import "./Checkout.styles.jsx";
-import { CartContext } from "../../contexts/CartContext";
-import { useContext } from "react";
 import CheckoutItem from "../checkoutItem/CheckoutItem";
 import { CheckoutContainer, CheckoutHeader, HeaderBlock, Total } from "./Checkout.styles.jsx";
 
 function Checkout() {
-  const { cartItems, cartTotal } = useContext(CartContext);
+  const { cartItems, cartTotal } = [];
 
   return (
     <CheckoutContainer>

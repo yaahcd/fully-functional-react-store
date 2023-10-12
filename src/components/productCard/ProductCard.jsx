@@ -1,6 +1,4 @@
 import Button, { BUTTON_TYPE_CLASSES } from "../button/Button";
-import { CartContext } from "../../contexts/CartContext";
-import { useContext } from "react";
 import {
   ProductCartContainer,
   Footer,
@@ -9,7 +7,7 @@ import {
 } from "./ProductCard.styles";
 
 function ProductCard({ product }) {
-  const { addItemToCart } = useContext(CartContext);
+  const  addItemToCart = []
 
   const addProductToCart = () => addItemToCart(product);
 

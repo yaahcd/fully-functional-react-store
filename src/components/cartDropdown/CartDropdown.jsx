@@ -1,13 +1,12 @@
 import "./CartDropdown.styles.jsx";
 import Button from "../button/Button";
 import CartItem from "../cartItem/CartItem";
-import { CartContext } from "../../contexts/CartContext";
-import { useContext } from "react";
+
 import { useNavigate } from "react-router-dom";
 import { CartDropdownContainer, CartItems, EmptyMessage } from "./CartDropdown.styles.jsx";
 
 function CartDropdown() {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems } = []
   const navigate = useNavigate();
 
   return (
