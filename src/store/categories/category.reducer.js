@@ -2,6 +2,8 @@ import { categoriesActionTypes } from "./category.types";
 
 export const categoriesInitialState = {
   categories: [],
+  isLoading: false,
+  error: null
 };
 
 export const categoriesReducer = (
@@ -10,7 +12,7 @@ export const categoriesReducer = (
 ) => {
   
   switch (action.type) {
-    case categoriesActionTypes.setCategories:
+    case categoriesActionTypes.fetchCategoriesSuccess:
       return {
         ...state,
         categories: action.payload,
