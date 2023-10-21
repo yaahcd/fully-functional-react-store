@@ -10,7 +10,6 @@ export const categoriesReducer = (
   state = categoriesInitialState,
   action = {}
 ) => {
-  
   switch (action.type) {
     case categoriesActionTypes.fetchCategoriesStart:
       return {
@@ -20,14 +19,14 @@ export const categoriesReducer = (
     case categoriesActionTypes.fetchCategoriesSuccess:
       return {
         ...state,
+        isLoading: false,
         categories: action.payload,
-        isLoading: false
       };
     case categoriesActionTypes.fetchCategoriesFailed:
       return {
         ...state,
+        isLoading: false,
         categories: action.payload,
-        isLoading: false
       };
     default:
       return state;

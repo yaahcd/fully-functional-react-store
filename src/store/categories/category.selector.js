@@ -17,3 +17,8 @@ export const selectCategoriesMap = createSelector(
     }, {})
 );
 //criando um obj com reduce ^
+
+export const selectCategoriesIsLoading = createSelector(
+  [selectCategoryReducer],
+  (categoriesSlice) => categoriesSlice.isLoading
+);
