@@ -1,14 +1,12 @@
 import { useState } from "react";
-import {
-  signInWithGooglePopup,
-  signInAuthUserWithEmailAndPassword,
-  createUserDocFromAuth,
-} from "../../utils/firebase/firebase.utils";
 import FormInput from "../formInput/FormInput";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/Button";
 import { SignInContainer, ButtonsContainer } from "./SignIn.styles";
 import { useDispatch } from "react-redux";
-import { googleSignInStart } from "../../store/user/user.action";
+import {
+  emailSignInStart,
+  googleSignInStart,
+} from "../../store/user/user.action";
 
 function SignIn() {
   const [signInUser, setSignInUser] = useState({
@@ -38,10 +36,7 @@ function SignIn() {
     e.preventDefault();
 
     try {
-      const { user } = await signInAuthUserWithEmailAndPassword(
-        signInUser.email,
-        signInUser.password
-      );
+      dispatch(emailSignInStart(signInUser.email, signInUser.password));
       resetFormFields();
     } catch (error) {
       if (error.code === "auth/invalid-login-credentials") {

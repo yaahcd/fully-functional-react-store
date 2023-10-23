@@ -5,9 +5,9 @@ export const userActionTypes = {
     emailSignInStart: "user/emailSignInStart",
     signInSuccess: "user/signInSuccess",
     signInFailed: "user/signInFailed",
+    signUpStart: "user/signUpStart",
     signUpSuccess: "user/signUpSuccess",
     signUpFailed: "user/signUpFailed",
-    signUpStart: "user/signUpStart",
     signOutStart: "user/signOutStart",
     signOutSuccess: "user/signOutSuccess",
     signOutFailed: "user/signOutFailed"
