@@ -8,7 +8,7 @@ import { categoriesActionTypes } from "./category.types";
 
 export function* fetchCategoriesAsync() {
   try {
-    const categoriesArray = yield call(getCategoriesAndDocuments("categories"));
+    const categoriesArray = yield call(getCategoriesAndDocuments, "categories");
     yield put(fetchCategoriesSuccess(categoriesArray));
   } catch (error) {
     yield put(fetchCategoriesFailed(error));
@@ -19,6 +19,6 @@ export function* onFetchCategories() {
   yield takeLatest(categoriesActionTypes.fetchCategoriesStart, fetchCategoriesAsync);
 }
 
-export function* categoriesSga() {
+export function* categoriesSaga() {
   yield all([call(onFetchCategories)]);
 }
