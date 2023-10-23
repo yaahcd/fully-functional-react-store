@@ -7,15 +7,18 @@ import {
 import FormInput from "../formInput/FormInput";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/Button";
 import { SignInContainer, ButtonsContainer } from "./SignIn.styles";
+import { useDispatch } from "react-redux";
+import { googleSignInStart } from "../../store/user/user.action";
 
 function SignIn() {
   const [signInUser, setSignInUser] = useState({
     email: "",
     password: "",
   });
+  const dispatch = useDispatch();
 
   const signInWithGoogle = async () => {
-    await signInWithGooglePopup();
+    dispatch(googleSignInStart());
   };
 
   const handleChange = (e) => {
