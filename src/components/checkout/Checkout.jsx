@@ -1,5 +1,6 @@
 import "./Checkout.styles.jsx";
 import CheckoutItem from "../checkoutItem/CheckoutItem";
+import PaymentForm from "../paymentForm/PaymentForm.jsx";
 import {
   CheckoutContainer,
   CheckoutHeader,
@@ -39,6 +40,7 @@ function Checkout() {
         return <CheckoutItem key={cartItem.id} cartItem={cartItem} />;
       })}
       <Total>Total: £{cartTotal}</Total>
+      <PaymentForm/>
     </CheckoutContainer>
   );
 }
