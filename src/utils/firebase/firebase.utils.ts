@@ -40,16 +40,19 @@ export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
 
 export const db = getFirestore();
 
-export const addCollectionAndDocuments = async (
-  collectionKey,
-  objectsToAdd,
-  field
+export type ObjectToAdd = {
+  title: string;
+}
+
+export const addCollectionAndDocuments = async <T extends ObjectToAdd>(
+  collectionKey: string, 
+  objectsToAdd: T[],
 ) => {
   const collectionRef = collection(db, collectionKey);
   const batch = writeBatch(db);
 
   objectsToAdd.forEach((object) => {
-    const docRef = doc(collectionRef, object[field].toLowerCase());
+    const docRef = doc(collectionRef, object.title.toLowerCase());
     batch.set(docRef, object);
   });
 
