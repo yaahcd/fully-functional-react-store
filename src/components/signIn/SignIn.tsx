@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
 import FormInput from "../formInput/FormInput";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/Button";
 import { SignInContainer, ButtonsContainer } from "./SignIn.styles";
@@ -19,7 +19,7 @@ function SignIn() {
     dispatch(googleSignInStart());
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
     setSignInUser({ ...signInUser, [name]: value });
@@ -32,18 +32,14 @@ function SignIn() {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
       dispatch(emailSignInStart(signInUser.email, signInUser.password));
       resetFormFields();
     } catch (error) {
-      if (error.code === "auth/invalid-login-credentials") {
-        alert("Wrong email or password");
-      } else {
         console.error(error);
-      }
     }
   };
 
@@ -51,7 +47,7 @@ function SignIn() {
     <SignInContainer>
       <h2>Already have an account?</h2>
       <span>Sign in with your email and password</span>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={() => handleSubmit}>
         <FormInput
           label="Email"
           type="email"
