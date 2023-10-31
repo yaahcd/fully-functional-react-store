@@ -35,7 +35,7 @@ export type SignInFailed = ActionWithPayload<
 
 export type SignUpStart = ActionWithPayload<
   userActionTypes.signUpStart,
-  { email: string }
+  { email: string, password: string, displayName: string }
 >;
 
 export type SignUpSuccess = ActionWithPayload<
@@ -72,7 +72,7 @@ export const emailSignInStart = withMatcher(
 );
 
 export const signInSuccess = withMatcher(
-  (user: UserData): SignInSuccess =>
+  (user: UserData & { id: string}): SignInSuccess =>
     createAction(userActionTypes.signInSuccess, user)
 );
 
