@@ -50,7 +50,7 @@ export function* signInWithGoogle() {
   }
 }
 
-export function* signInWithEmail( {payload} : EmailSignInStart) {
+export function* signInWithEmail({ payload }: EmailSignInStart) {
   try {
     const userCredential = yield* call(
       signInAuthUserWithEmailAndPassword,
@@ -77,11 +77,8 @@ export function* isUserAuthenticated() {
   }
 }
 
-export function* signUp({
-  payload
-}: SignUpStart) {
-
-  const displayName = payload!.displayName || ""
+export function* signUp({ payload }: SignUpStart) {
+  const displayName = payload!.displayName || "";
 
   try {
     const userCredential = yield* call(
@@ -92,8 +89,7 @@ export function* signUp({
 
     if (userCredential) {
       const { user } = userCredential;
-      yield* put(signUpSuccess(user, {displayName}
-        ));
+      yield* put(signUpSuccess(user, { displayName }));
     }
   } catch (error) {
     yield* put(signUpFailed(error as Error));
@@ -109,10 +105,12 @@ export function* signOut() {
   }
 }
 
-export function* signInAfterSignUp({
-  payload
-}: SignUpSuccess) {
-  yield* call(getSnapshotFromUserAuth, payload!.user, payload!.additionalDetails);
+export function* signInAfterSignUp({ payload }: SignUpSuccess) {
+  yield* call(
+    getSnapshotFromUserAuth,
+    payload!.user,
+    payload!.additionalDetails
+  );
 }
 
 export function* onGoogleSignInStart() {
