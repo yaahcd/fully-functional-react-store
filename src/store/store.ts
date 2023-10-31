@@ -7,6 +7,8 @@ import createSagaMiddleware from 'redux-saga'
 import { rootSaga } from "./root-saga";
 import { rootReducer } from "./root-reducer";
 
+export type RootState = ReturnType<typeof rootReducer>
+
 // const loggerMiddleware = (store) => (next) => (action) => {
 //    if(!action.type){
 //     return next(action)
