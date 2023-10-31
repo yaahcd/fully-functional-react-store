@@ -1,4 +1,5 @@
 import { useState, FormEvent, ChangeEvent } from "react";
+import { AuthError, AuthErrorCodes } from "firebase/auth";
 import FormInput from "../formInput/FormInput";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/Button";
 import { SignInContainer, ButtonsContainer } from "./SignIn.styles";
@@ -39,7 +40,11 @@ function SignIn() {
       dispatch(emailSignInStart(signInUser.email, signInUser.password));
       resetFormFields();
     } catch (error) {
+      if ((error as AuthError).code === AuthErrorCodes.INVALID_EMAIL || (error as AuthError).code === AuthErrorCodes.INVALID_PASSWORD) {
+        alert("Wrong email or password"); 
+      } else {
         console.error(error);
+      }
     }
   };
 
