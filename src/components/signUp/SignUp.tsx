@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
+import { AuthError, AuthErrorCodes } from "firebase/auth";
 import FormInput from "../formInput/FormInput";
 import Button from "../button/Button";
 import { SignUpContainer } from "./SignUp.styles";
@@ -14,7 +15,7 @@ function SignUp() {
   });
   const dispatch = useDispatch();
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
     setNewUser({ ...newUser, [name]: value });
@@ -29,7 +30,7 @@ function SignUp() {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (newUser.password !== newUser.confirmPassword) {
@@ -43,7 +44,7 @@ function SignUp() {
       );
       resetFormFields();
     } catch (error) {
-      if (error.code === "auth/email-already-in-use") {
+      if ((error as AuthError).code === AuthErrorCodes.EMAIL_EXISTS) {
         alert("Email already in use");
       } else {
         console.error(error);
