@@ -5,7 +5,13 @@ import {
   Body,
 } from "./CategoryItem.styles";
 
-function CategoryItem({ title, imageUrl, route }) {
+export type CategoryItemProps = {
+  title: string;
+  imageUrl: string;
+  route: string;
+};
+
+function CategoryItem({ title, imageUrl, route }: CategoryItemProps) {
 
   const navigate = useNavigate();
 
