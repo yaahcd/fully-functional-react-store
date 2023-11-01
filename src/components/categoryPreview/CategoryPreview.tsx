@@ -1,7 +1,13 @@
+import { CategoryItem } from "../../store/categories/category.types";
 import ProductCard from "../productCard/ProductCard";
 import { CategoryPreviewContainer, Title, Preview } from "./CategoryPreview.styles";
 
-function CategoryPreview({ title, products }) {
+type CategoryPreviewProps = {
+  title: string;
+  products: CategoryItem[];
+};
+
+function CategoryPreview({ title, products }: CategoryPreviewProps) {
   return (
     <CategoryPreviewContainer>
       <h2>
