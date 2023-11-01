@@ -8,8 +8,13 @@ import {
 import { selectCartItems } from "../../store/cart/cart.selector";
 import { addItemToCart } from "../../store/cart/cart.action";
 import { useDispatch, useSelector } from "react-redux";
+import { CategoryItem } from "../../store/categories/category.types";
 
-function ProductCard({ product }) {
+type ProductCardProps = {
+  product: CategoryItem;
+};
+
+function ProductCard({ product }: ProductCardProps) {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
 
